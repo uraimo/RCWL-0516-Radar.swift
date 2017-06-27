@@ -1,6 +1,6 @@
 import SwiftyGPIO
 
-class RCWL0516Radar{
+public class RCWL0516Radar{
     let gpio: GPIO
 
     public init(_ gpio:GPIO){
@@ -24,7 +24,7 @@ class RCWL0516Radar{
     }
 }
 
-enum RCWL0516Motion{
+public enum RCWL0516Motion{
     case NoMotion
     case MotionDetected
 }
