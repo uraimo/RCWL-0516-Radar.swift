@@ -12,27 +12,31 @@
 
 # Summary
 
-With this simple library you'll be able to use a RCWL-0516 microwave radar to detect movements of humans(or animals) inside its detection range (4-7 meters all around and a few meters upward, depending on the module).
+With this simple library you'll be able to use a RCWL-0516 microwave radar to detect movements of humans(or animals) inside its detection range (4-7 meters all around and a few meters upward, depending on the module and `VIN`).
 
-This sensor is an alternative to common PIR motion sensors that use infrared light to detect movements and that have their range limited by the surfaces that surrounds them. The RCWL signal can get through relatively thick surfaces made by non-metal materials (doors, windows, walls, etc...).
+This sensor is an alternative to common PIR motion sensors that use infrared light to detect movements and that have their range limited by the reflective surfaces that surrounds them. The RCWL signal instead, can get through relatively thick surfaces made by non-metal materials (doors, windows, walls, etc...).
 
 ## Hardware Details
 
 All the information available for this mysterious module have been discovered by Joe Desbonnet and collected [on GitHub](https://github.com/jdesbonnet/RCWL-0516). Check it out if you want to know more.
 
-The module costs a few dollars and can work with a 5V `VIN` and has a 3.3V `OUT` output signal that allows us to connect it to GPIO ports of any ARM board. An additional 3.3V output to power external devices and a light sensor input `CDS` are also available. Most of the times you'll just connect `VIN`, `GND` and `OUT` to one of your GPIOs.
+The module costs a few dollars and can work with a 5V `VIN` and has a 3.3V `OUT` output signal that allows us to connect it to a GPIO port of essentially any ARM board. 
 
-Each time the sensor detects movements, the `OUT` pin, that has normally a 0V value when no motion is detected, is set high (3.3V).
+An additional 3.3V output to power external devices and a light sensor input `CDS` are also available. Most of the times you'll just connect `VIN`, `GND` and then `OUT` to one of your GPIOs.
 
-The radar does not give you information on the distance of the object that is moving and does not even give you an approximate location within its range, it just detect continuous motion.
+Each time the sensor detects movements, the `OUT` pin, that is normally at 0V when no motion is detected, is set to high (3.3V).
 
-The module uses a 3Ghz signal, so it will not cause any interference with other wireless devices.
+The radar does not give you information on the distance of the object that is moving and does not even give you an approximate location within its range, it just detect continuous motion or new objects entering its range.
+
+Since the module uses a 3Ghz based signal, it will not cause any interference with other wireless devices.
 
 Multiple modules can be used together in the same room.
 
 ## Usage
                                                                                                  
-The library revolves around the `RCWL0516Radar` object, to create a reference we just need to initialize the object with a GPIO instance obtained from SwiftyGPIO, that refers to the board pin where `OUT` is connected:
+The library revolves around the `RCWL0516Radar` object. 
+
+To create a `RCWL0516Radar` instance we just need to initialize the object with a GPIO instance obtained from [SwiftyGPIO](https://github.com/uraimo/SwiftyGPIO), that points to the board pin where `OUT` is connected (e.g. P18):
 
 ```swift
 import SwiftyGPIO
@@ -52,7 +56,7 @@ while(true){
 
 Calling `getStatus` we can know if the sensor is detecting movements or not (be aware that the sensor will need a second or so to understand that the motion has stopped).
 
-To register handlers that will be called when some kind on motion starts in the detection range or when it stops, use `onMotion(closure:)` and `onMotionStop(closure:)`.
+To register handlers that will be called when some kind on motion starts or stops in the detection range, use `onMotion(closure:)` and `onMotionStop(closure:)`.
 
 ```swift
 r.onMotion{
@@ -63,6 +67,7 @@ r.onMotionStop{
     print("No more movement...")
 }
 ```
+Handlers can be unregistered calling `clearMotionHandlers()`.
 
 ## Supported Boards
 
