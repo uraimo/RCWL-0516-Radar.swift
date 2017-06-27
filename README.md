@@ -8,7 +8,7 @@
 <a href="https://raw.githubusercontent.com/uraimo/<DEVICE>.swift/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
 </p>
  
-![RCWL-0516 animation](https://github.com/uraimo/Nunchuck.swift/raw/master/RCWL0516.gif)
+![RCWL-0516 animation](https://github.com/uraimo/RCWL-0516-Radar.swift/raw/master/radar.gif)
 
 # Summary
 
