@@ -34,7 +34,7 @@ Multiple modules can be used together in the same room.
                                                                                                  
 The library revolves around the `RCWL0516Radar` object, to create a reference we just need to initialize the object with a GPIO instance obtained from SwiftyGPIO, that refers to the board pin where `OUT` is connected:
 
-```
+```swift
 import SwiftyGPIO
 import RCWL0516Radar
 
