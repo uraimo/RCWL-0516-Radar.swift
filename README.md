@@ -32,6 +32,8 @@ Since the module uses a 3Ghz based signal, it will not cause any interference wi
 
 Multiple modules can be used together in the same room.
 
+Update 2024: If you are here because you want to know more about this sensor, check out [this link](https://news.ycombinator.com/item?id=40834349) and [this link](https://10maurycy10.github.io/projects/motion_sensor_hacking/).
+
 ## Usage
                                                                                                  
 The library revolves around the `RCWL0516Radar` object. 
