@@ -34,6 +34,8 @@ Multiple modules can be used together in the same room.
 
 Update 2024: If you are here because you want to know more about this sensor, check out [this link](https://news.ycombinator.com/item?id=40834349) and [this link](https://10maurycy10.github.io/projects/motion_sensor_hacking/).
 
+Update 2025: There are now various similar sensors in this category, if you are interested start from here and check the linked products: https://www.cnx-software.com/2025/07/27/dreamhat-60-ghz-mmwave-radar-hat-brings-high-precision-motion-sensing-to-raspberry-pi-4-5/ . As I expected 8 years ago, there are now off-the-shelf products you can buy that use multiple devices to approximate the relative location of objects through wireless triangulation and power readings.
+
 ## Usage
                                                                                                  
 The library revolves around the `RCWL0516Radar` object. 
